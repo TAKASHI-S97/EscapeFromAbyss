@@ -178,10 +178,10 @@ void GDIPlusRenderer::Update()
 	RECT StringRect = { 100, 225, 800, 375 };
 
 	// 出力テキスト書式
-	char ContinueString[37] = "STAGE END!\nENTER: Continue \tESC: End";
+	std::string ContinueString = "STAGE END!\nENTER: Continue \tESC: End";
 
 	// テキスト出力
-	DrawText(m_hdcs[static_cast<size_t>(ENUM_HDC::RENDER_TARGET)], ContinueString, 26, &StringRect, DT_CENTER);
+	DrawText(m_hdcs[static_cast<size_t>(ENUM_HDC::RENDER_TARGET)], ContinueString.c_str(), ContinueString.length(), &StringRect, DT_CENTER);
 
 	// フォント設定戻し
 	SelectObject(m_hdcs[static_cast<size_t>(ENUM_HDC::RENDER_TARGET)], oldFont);
